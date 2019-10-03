@@ -13,7 +13,7 @@
       Date Of Birth
     </div>
   </div>
-  <div class="row" *ngFor="let user of users">
+  <div class="row" *ngFor="let user of users; let i = index">
     <div class="col-md-2 text-center">
       {{ user.firstName }}
     </div>
@@ -25,6 +25,9 @@
     </div>
     <div class="col-md-2 text-center">
       {{ user.dateOfBirth }}
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger" (click)="deleteUserById(user.id, index)">Delete</button>
     </div>
   </div>
 </div>

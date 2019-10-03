@@ -30,8 +30,8 @@ export class UserService {
     return this.httpClient.get<User[]>(BASE_URL);
   }
 
-  deleteUserById(userId: string) {
-    this.httpClient.delete(`${BASE_URL}/${userId}`, httpOptions);
+  deleteUserById(userId: string): Observable<void> {
+    return this.httpClient.delete<void>(`${BASE_URL}/${userId}`, httpOptions);
   }
 
 }
