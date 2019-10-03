@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 text-center">
+      First Name
+    </div>
+    <div class="col-md-2 text-center">
+      Last Name
+    </div>
+    <div class="col-md-2 text-center">
+      Email
+    </div>
+    <div class="col-md-2 text-center">
+      Date Of Birth
+    </div>
+  </div>
+  <div class="row" *ngFor="let user of users">
+    <div class="col-md-2 text-center">
+      {{ user.firstName }}
+    </div>
+    <div class="col-md-2 text-center">
+      {{ user.lastName }}
+    </div>
+    <div class="col-md-2 text-center">
+      {{ user.email }}
+    </div>
+    <div class="col-md-2 text-center">
+      {{ user.dateOfBirth }}
+    </div>
+  </div>
+</div>
