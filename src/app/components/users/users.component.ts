@@ -28,15 +28,8 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  deleteUserById(userId: string, itemIndex: number) {
-    this.userService.deleteUserById(userId)
-      .toPromise()
-      .then(() => {
-        this.users.splice(itemIndex, 1);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  removeUser(itemIndex: number) {
+    this.users.splice(itemIndex, 1);
   }
 
 }

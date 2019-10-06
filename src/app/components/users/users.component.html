@@ -1,15 +1,20 @@
 <div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-2">
+      <h3>Users</h3>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 text-center font-weight-bold">
       First Name
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 text-center font-weight-bold">
       Last Name
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-4 text-center font-weight-bold">
       Email
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 text-center font-weight-bold">
       Date Of Birth
     </div>
   </div>
@@ -20,14 +25,14 @@
     <div class="col-md-2 text-center">
       {{ user.lastName }}
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-4 text-center">
       {{ user.email }}
     </div>
     <div class="col-md-2 text-center">
       {{ user.dateOfBirth }}
     </div>
     <div class="col-md-2">
-      <button class="btn btn-danger" (click)="deleteUserById(user.id, i)">Delete</button>
+      <app-delete-user-dialog [user]="user" (delete)="removeUser(i)"></app-delete-user-dialog>
     </div>
   </div>
 </div>

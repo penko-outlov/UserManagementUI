@@ -1,0 +1,13 @@
+<ng-template #delete let-modal>
+  <div class="modal-header">
+    Delete user
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to remove {{ user.firstName }} {{ user.lastName }}?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger" (click)="modal.close('delete')">Yes, I am sure</button>
+    <button class="btn btn-info" (click)="modal.close('cancel')">Cancel</button>
+  </div>
+</ng-template>
+<button class="btn btn-danger" (click)="deleteUser(delete)">Delete</button>
