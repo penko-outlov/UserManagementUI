@@ -6,17 +6,22 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { DeleteUserDialogComponent } from './components/users/delete-user-dialog/delete-user-dialog.component';
+import { CreateUserDialogComponent } from './components/users/create-user-dialog/create-user-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    DeleteUserDialogComponent
+    DeleteUserDialogComponent,
+    CreateUserDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModalModule
+    NgbModalModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

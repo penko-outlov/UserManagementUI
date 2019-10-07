@@ -35,4 +35,9 @@
       <app-delete-user-dialog [user]="user" (delete)="removeUser(i)"></app-delete-user-dialog>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-2 text-center">
+      <app-create-user-dialog (create)="createUser()"></app-create-user-dialog>
+    </div>
+  </div>
 </div>

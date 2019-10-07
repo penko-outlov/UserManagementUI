@@ -18,8 +18,8 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createUser(user: User) {
-    this.httpClient.post(BASE_URL, user, httpOptions);
+  createUser(user: User): Observable<void> {
+    return this.httpClient.post<any>(BASE_URL, user, httpOptions);
   }
 
   getUserById(userId: string): Observable<User> {
