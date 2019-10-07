@@ -1,27 +1,23 @@
 # UserManagementUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
+This is the front-end client application for the UserManagermentAPI built with Angular 8, Bootstrap 4 and NG Bootstrap 5.
+It provides basic CRUD operations for the user entities.
 
-## Development server
+## Prerequisites for running the application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You will need to have `NodeJS` installed on yor machine in order to download the project's dependencies with `npm`.
+If you do not have it installed, please go to the official NodeJS site at this link `https://nodejs.org/en/`
+and follow the installation steps.
 
-## Code scaffolding
+Running the application requires the installation of the Angular CLI.
+If you don't have the Angular CLI tool, please install it using `npm` by running the following command `npm install -g @angular/cli`
+from the command line. For more information about the Angular CLI please visit the following link `https://cli.angular.io/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Starting the application server
 
-## Build
+Before being able to run the application you need to download all of its dependencies. To do so, go into the root folder of the
+project and run the following command `npm install` from the command line.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To run the application go into the root folder of the project and run the command `ng serve` from your command line.
+This will run the application in development mode and it will be accessible on your local machine at this address
+`http://localhost:4200`. Then open up your browser and navigate to the same URL.
