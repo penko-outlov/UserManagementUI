@@ -1,0 +1,48 @@
+<ng-template #updateContent let-modal>
+  <div class="modal-header">
+    Create user
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updateUserForm">
+      <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" formControlName="firstName" name="firstName" class="form-control" />
+        <div class="text-danger" *ngIf="firstName.invalid && firstName.errors.required && (firstName.touched || firstName.dirty)">
+          First name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" formControlName="lastName" name="lastName" class="form-control" />
+        <div class="text-danger" *ngIf="lastName.invalid && lastName.errors.required && (lastName.touched || lastName.dirty)">
+          Last name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" name="email" class="form-control" />
+        <div class="text-danger" *ngIf="email.invalid && email.errors.required && (email.touched || email.dirty)">
+          Email is required
+        </div>
+        <div class="text-danger" *ngIf="email.invalid && email.errors.email && (email.touched || email.dirty)">
+          Invalid email format
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <input type="text" formControlName="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" />
+        <div class="text-danger" *ngIf="dateOfBirth.invalid && dateOfBirth.errors.required && (dateOfBirth.touched || dateOfBirth.dirty)">
+          Date of birth is required
+        </div>
+        <div class="text-danger" *ngIf="dateOfBirth.invalid && dateOfBirth.errors.pattern && (dateOfBirth.touched || dateOfBirth.dirty)">
+          Invalid date format
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" [disabled]="updateUserForm.invalid" (click)="modal.close('update')">Update</button>
+    <button class="btn btn-info" (click)="modal.close('cancel')">Cancel</button>
+  </div>
+</ng-template>
+<button class="btn btn-info" (click)="update(updateContent)">Edit</button>

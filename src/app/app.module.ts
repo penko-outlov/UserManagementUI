@@ -8,13 +8,15 @@ import { UsersComponent } from './components/users/users.component';
 import { DeleteUserDialogComponent } from './components/users/delete-user-dialog/delete-user-dialog.component';
 import { CreateUserDialogComponent } from './components/users/create-user-dialog/create-user-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateUserDialogComponent } from './components/users/update-user-dialog/update-user-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     DeleteUserDialogComponent,
-    CreateUserDialogComponent
+    CreateUserDialogComponent,
+    UpdateUserDialogComponent
   ],
   imports: [
     BrowserModule,

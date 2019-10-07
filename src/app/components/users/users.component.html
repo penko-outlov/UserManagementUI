@@ -33,11 +33,12 @@
     </div>
     <div class="col-md-2">
       <app-delete-user-dialog [user]="user" (delete)="removeUser(i)"></app-delete-user-dialog>
+      <app-update-user-dialog [user]="user" (update)="getAllUsers()"></app-update-user-dialog>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2 text-center">
-      <app-create-user-dialog (create)="createUser()"></app-create-user-dialog>
+      <app-create-user-dialog (create)="getAllUsers()"></app-create-user-dialog>
     </div>
   </div>
 </div>

@@ -30,6 +30,10 @@ export class UserService {
     return this.httpClient.get<User[]>(BASE_URL);
   }
 
+  updateUser(user: User): Observable<any> {
+    return this.httpClient.put(BASE_URL, user, httpOptions);
+  }
+
   deleteUserById(userId: string): Observable<void> {
     return this.httpClient.delete<void>(`${BASE_URL}/${userId}`, httpOptions);
   }

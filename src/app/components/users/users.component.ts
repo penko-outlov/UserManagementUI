@@ -32,8 +32,4 @@ export class UsersComponent implements OnInit {
     this.users.splice(itemIndex, 1);
   }
 
-  createUser() {
-    this.getAllUsers();
-  }
-
 }
