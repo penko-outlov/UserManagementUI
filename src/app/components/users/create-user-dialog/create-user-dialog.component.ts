@@ -52,6 +52,7 @@ export class CreateUserDialogComponent {
       if (result === 'create') {
         this.createUser();
       }
+    }, (reason) => {
     });
   }
 

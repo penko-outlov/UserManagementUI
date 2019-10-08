@@ -54,6 +54,7 @@ export class UpdateUserDialogComponent implements OnInit {
       if (result === 'update') {
         this.updateUser();
       }
+    }, (reason) => {
     });
   }
 
