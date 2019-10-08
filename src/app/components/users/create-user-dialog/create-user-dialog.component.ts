@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user.model';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
@@ -17,8 +17,11 @@ export class CreateUserDialogComponent {
 
   createUserForm: FormGroup;
 
+  date: NgbDateStruct;
+
   constructor(
       private modalService: NgbModal,
+      private calendar: NgbCalendar,
       private userService: UserService,
       private formBuilder: FormBuilder) {
     this.create = new EventEmitter<any>();
@@ -31,12 +34,13 @@ export class CreateUserDialogComponent {
       firstName: this.firstName.value,
       lastName: this.lastName.value,
       email: this.email.value,
-      dateOfBirth: this.dateOfBirth.value
+      dateOfBirth: this.getAsDateString(this.dateOfBirth.value)
     };
     this.userService.createUser(this.user)
       .toPromise()
       .then(() => {
         this.create.emit(null);
+        this.createUserForm.reset();
       })
       .catch(error => {
         console.error(error);
@@ -49,6 +53,18 @@ export class CreateUserDialogComponent {
         this.createUser();
       }
     });
+  }
+
+  updateDate(event) {
+    this.date = event;
+  }
+
+  isInPast(): boolean {
+    if (!this.date) {
+      return true;
+    }
+    let currentDate: NgbDate = this.calendar.getToday();
+    return currentDate.after(this.date) || currentDate.equals(this.date);
   }
 
   private initializeCreateUserFormGroup() {
@@ -64,10 +80,15 @@ export class CreateUserDialogComponent {
         Validators.email
       ]),
       'dateOfBirth': new FormControl('', [
-        Validators.required,
-        Validators.pattern(/\d{4}\-\d{1,2}\-\d{1,2}/)
+        Validators.required
       ])
     });
+  }
+
+  private getAsDateString(date: NgbDate) {
+    const month = date.month < 10 ? `0${date.month}` : date.month;
+    const day = date.day < 10 ? `0${date.day}` : date.day;
+    return `${date.year}-${month}-${day}`;
   }
 
   get firstName() { return this.createUserForm.get('firstName'); }
